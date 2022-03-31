@@ -104,3 +104,5 @@
 10-big-data/uebung/vorlage/\.settings/org\.eclipse\.jdt\.core\.prefs
 
 10-big-data/uebung/vorlage/\.settings/org\.eclipse\.m2e\.core\.prefs
+
+*.xopp~
