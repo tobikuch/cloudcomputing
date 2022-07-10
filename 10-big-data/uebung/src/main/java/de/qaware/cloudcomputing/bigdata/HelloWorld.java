@@ -55,6 +55,9 @@ public class HelloWorld {
                             "   JRE: " + System.getProperty("java.runtime.name"));
 
             // TODO: Ignite-Cache lesen und ausgeben
+            IgniteCache<Object, Object> igniteCache = ignite.getOrCreateCache("myCache");
+            System.out.println("Key 1: " + igniteCache.get(1));
+            System.out.println("Key 2: " + igniteCache.get(2));
         }
     }
 }

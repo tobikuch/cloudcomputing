@@ -4,6 +4,7 @@ import de.qaware.cloudcomputing.bigdata.adapter.WordCountSplitAdapter;
 import de.qaware.cloudcomputing.bigdata.ignite.IgniteConfigurationProvider;
 import de.qaware.cloudcomputing.bigdata.util.FileUtil;
 import org.apache.ignite.Ignite;
+import org.apache.ignite.IgniteCache;
 import org.apache.ignite.IgniteException;
 import org.apache.ignite.Ignition;
 import org.apache.ignite.configuration.IgniteConfiguration;
@@ -34,6 +35,7 @@ public class WordCountMapReduce {
         WordCountSplitAdapter wordCountSplitAdapter = new WordCountSplitAdapter();
 
         // TODO: Adapter und Daten an das Ignite-Cluster übergeben
+        Map<String, Integer> taskResult = ignite.compute().execute(wordCountSplitAdapter, book);
 
         Map<String, Integer> sortedTaskResult = sortMapByValue(taskResult);
 

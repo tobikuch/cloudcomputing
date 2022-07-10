@@ -9,7 +9,9 @@ public class OpenLibraryActor extends UntypedAbstractActor {
 
     @Override
     public void onReceive(Object message) throws Exception {
-        //TODO
+        String searchTerm = (String) message;
+        var items = connector.getBooksWithTitleContaining(searchTerm);
+        getSender().tell(items, self());
     }
 
 }
